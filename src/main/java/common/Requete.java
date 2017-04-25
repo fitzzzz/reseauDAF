@@ -1,6 +1,5 @@
 package common;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,9 +7,9 @@ import java.util.List;
  */
 public class Requete {
     private String code;
-    private List<?extends Serializable> params;
+    private List<Object> params;
 
-    public Requete(String code, List<?extends Serializable> params) {
+    public Requete(String code, List<Object> params) {
         this.code = code;
         this.params = params;
     }
@@ -19,7 +18,7 @@ public class Requete {
         return code;
     }
 
-    public List<? extends Serializable> getParams() {
+    public List<Object> getParams() {
         return params;
     }
 }
