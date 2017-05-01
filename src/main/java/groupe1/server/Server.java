@@ -1,13 +1,13 @@
 package groupe1.server;
 
 import common.Requete;
+import groupe1.common.communication.SenderReceiver;
 import groupe1.server.requesthandler.RequestHandler;
 import groupe1.server.requesthandler.RequestHandlerMap;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -15,11 +15,13 @@ import java.util.Map;
  */
 public class Server {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        ServerSocket serverSocket = new ServerSocket(5555);
+        ServerSocket serverSocket = new ServerSocket(6666);
         Socket clientSocket = serverSocket.accept();
-        ObjectInputStream objectInputStream = new ObjectInputStream(clientSocket.getInputStream());
-        Requete requete = (Requete) objectInputStream.readObject();
         Map<String, RequestHandler> requestHandlerMap = RequestHandlerMap.getRequestHandlerMap();
-        requestHandlerMap.get(requete.getCode()).answer();
+
+        Requete requete = (Requete) SenderReceiver.receive(clientSocket);
+        requestHandlerMap.get(requete.getCode()).answer(clientSocket, requete);
+        serverSocket.close();
+        clientSocket.close();
     }
 }
