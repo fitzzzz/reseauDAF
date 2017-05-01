@@ -8,6 +8,7 @@ import java.util.List;
  * @author François Melkonian
  */
 public class Idea implements Serializable{
+	private int id;
 	private String description;
 	private List<String> technologiesEnvisagees;
 	private String etudiant;

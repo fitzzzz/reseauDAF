@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/reseauDAF.iml" filepath="$PROJECT_DIR$/reseauDAF.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serverF/serverF.iml" filepath="$PROJECT_DIR$/serverF/serverF.iml" />
     </modules>
   </component>
 </project>
