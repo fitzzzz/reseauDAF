@@ -15,7 +15,7 @@ public class Participate extends Requete {
     public Participate(int id) {
         super(PARTICIPATE.name());
         List<Object> parametre = new ArrayList<>();
-        params.add(id);
+        parametre.add(id);
         this.params = parametre;
     }
 }

@@ -16,7 +16,7 @@ public class GetParticipant extends Requete {
         super(GET_PARTICIPANT.name());
         List<Object> parametre = new ArrayList<>();
 
-        params.add(id);
+        parametre.add(id);
         this.params = parametre;
     }
 }
