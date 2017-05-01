@@ -9,6 +9,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * Created by DavidLANG on 01/05/2017.
@@ -17,10 +18,13 @@ public class Server {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         ServerSocket serverSocket = new ServerSocket(6666);
         Socket clientSocket = serverSocket.accept();
+        Scanner scanner = new Scanner(System.in);
         Map<String, RequestHandler> requestHandlerMap = RequestHandlerMap.getRequestHandlerMap();
 
-        Requete requete = (Requete) SenderReceiver.receive(clientSocket);
-        requestHandlerMap.get(requete.getCode()).answer(clientSocket, requete);
+        while (scanner.nextInt() != 0) {
+            Requete requete = (Requete) SenderReceiver.receive(clientSocket);
+            requestHandlerMap.get(requete.getCode()).answer(clientSocket, requete);
+        }
         serverSocket.close();
         clientSocket.close();
     }
