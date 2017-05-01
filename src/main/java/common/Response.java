@@ -6,14 +6,14 @@ import java.util.List;
 /**
  * Created by DavidLANG on 25/04/2017.
  */
-public class Response {
-    List<Object> responses;
+public class Response implements Serializable {
+    List<?> responses;
 
-    public Response(List<Object> responses) {
+    public Response(List<?>  responses) {
         this.responses = responses;
     }
 
-    public List<Object> getResponses() {
+    public List<?> getResponses() {
         return responses;
     }
 }
