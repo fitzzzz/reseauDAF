@@ -1,5 +1,6 @@
 package common;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  */
 public class Requete implements Serializable {
     private String code;
-    private List<?> params;
+    protected List<?> params;
 
     public Requete(String code) {
         this.code = code;
