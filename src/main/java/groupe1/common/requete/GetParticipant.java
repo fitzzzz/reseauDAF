@@ -1,0 +1,22 @@
+package groupe1.common.requete;
+
+import common.Requete;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static common.Code.GET_PARTICIPANT;
+
+/**
+ * Created by DavidLANG on 01/05/2017.
+ */
+public class GetParticipant extends Requete {
+
+    public GetParticipant(int id) {
+        super(GET_PARTICIPANT.name());
+        List<Object> parametre = new ArrayList<>();
+
+        params.add(id);
+        this.params = parametre;
+    }
+}

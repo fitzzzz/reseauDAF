@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by DavidLANG on 25/04/2017.
  */
-public class Response {
+public class Response implements Serializable {
     List<Object> responses;
 
     public Response(List<Object> responses) {

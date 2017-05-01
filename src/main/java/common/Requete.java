@@ -1,16 +1,21 @@
 package common;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by DavidLANG on 25/04/2017.
  */
-public class Requete {
-    private String code;
-    private List<Object> params;
+public class Requete implements Serializable {
+    protected String code;
+    protected List<Object> params;
+
+    public Requete(String code) {
+        this.code = code;
+    }
 
     public Requete(String code, List<Object> params) {
-        this.code = code;
+        this(code);
         this.params = params;
     }
 
