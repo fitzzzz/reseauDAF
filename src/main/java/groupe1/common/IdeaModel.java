@@ -28,7 +28,6 @@ public class IdeaModel {
         if (!ideaList.add(idea))
             return -1;
         idea.setId(id);
-        ideaList.add(idea);
         return id++;
     }
 

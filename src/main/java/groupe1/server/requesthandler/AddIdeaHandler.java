@@ -1,6 +1,10 @@
 package groupe1.server.requesthandler;
 
+import common.Idea;
 import common.Requete;
+import groupe1.common.IdeaModel;
+import groupe1.common.communication.SenderReceiver;
+import groupe1.common.response.AddIdeaResponse;
 
 import java.net.Socket;
 
@@ -10,6 +14,7 @@ import java.net.Socket;
 public class AddIdeaHandler extends RequestHandler {
     @Override
     public void answer(Socket client, Requete requete) {
-
+        SenderReceiver.send(client, new AddIdeaResponse(IdeaModel.getInstance().add((Idea) requete.getParams().get(0))));
+        System.out.println("Idée bien ajoutée !!");
     }
 }

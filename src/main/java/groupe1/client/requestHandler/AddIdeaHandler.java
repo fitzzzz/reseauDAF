@@ -8,6 +8,6 @@ import common.Response;
 public class AddIdeaHandler extends RequestHandler{
     @Override
     public void handleResponse(Response response) {
-
+        System.out.println("Idée bien ajoutée, son id est le " + response.getResponses().get(0));
     }
 }
