@@ -41,6 +41,10 @@ public class Idea implements Serializable{
 		return email;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return description+"\n"+etudiant+"<"+email+">\n"+technologiesEnvisagees;
