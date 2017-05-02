@@ -8,7 +8,9 @@ import groupe2.serialisation.SerializeRequest;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * @author François Melkonian
@@ -22,7 +24,9 @@ public class Client {
  }
  public void start() throws IOException {
 	 Idea i = new Idea("desc","etudiant","mail@g.com");
-	 Requete requete = new Requete(req, Collections.singletonList(i));
+	 List<Object> liste = new ArrayList<>();
+	 liste.add(i);
+	 Requete requete = new Requete(req, liste);
 	 ObjectOutputStream stream = new ObjectOutputStream(connection.getOutputStream());
 	 SerializeRequest.run(stream,requete);
 	 ObjectInputStream data = new ObjectInputStream(connection.getInputStream());
