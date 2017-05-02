@@ -17,4 +17,7 @@ public class Response implements Serializable {
     public List<?> getResponses() {
         return responses;
     }
+    public String toString(){
+        return responses.toString();
+    }
 }

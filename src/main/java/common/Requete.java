@@ -26,4 +26,7 @@ public class Requete implements Serializable {
     public List<?> getParams() {
         return params;
     }
+    public String toString(){
+        return code+"\n"+params.toString();
+    }
 }

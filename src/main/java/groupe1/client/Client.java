@@ -18,7 +18,7 @@ import java.util.Scanner;
  */
 public class Client {
     public static void main(String[] args) throws IOException {
-        Socket serverSocket = new Socket("", 6666);
+        Socket serverSocket = new Socket("127.0.0.1", 1234);
         Scanner scanner = new Scanner(System.in);
         Map<String, RequestHandler> requestHandlerMap = RequestHandlerMap.getRequestHandlerMap();
         int nbPassage = 0;

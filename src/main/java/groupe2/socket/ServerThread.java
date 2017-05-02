@@ -6,7 +6,10 @@ import groupe2.protocol.MyProtocol;
 import groupe2.serialisation.DeserializeRequest;
 import groupe2.serialisation.SerializeResponse;
 
-import java.io.*;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 /**
@@ -15,19 +18,19 @@ import java.net.Socket;
 public class ServerThread extends Thread {
 	private Socket socket;
 	private MyProtocol protocol;
-	public ServerThread(Socket socket, MyProtocol protocol){
+
+	public ServerThread(Socket socket, MyProtocol protocol) {
 		super("ServerThread");
 		this.protocol = protocol;
 		this.socket = socket;
 	}
 
 	public Requete decode() throws IOException {
-
-		DataInputStream input = new DataInputStream(socket.getInputStream());
-		ObjectInputStream stream =  new ObjectInputStream(input);
-		Requete req =  DeserializeRequest.run(stream);
+		ObjectInputStream stream = new ObjectInputStream(socket.getInputStream());
+		Requete req = DeserializeRequest.run(stream);
 		return req;
 	}
+
 	@Override
 	public void run() {
 
@@ -35,19 +38,19 @@ public class ServerThread extends Thread {
 		try {
 			requete = decode();
 			Response rep = protocol.respond(requete);
-			System.out.println("envoye :"+rep);
-			sendResponse(rep,true);
+			System.out.println("envoye :" + rep);
+			sendResponse(rep, true);
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		}
+	}
 
-	public void sendResponse(Response rep,boolean lastCommand) throws IOException {
+	public void sendResponse(Response rep, boolean lastCommand) throws IOException {
 		DataOutputStream output = new DataOutputStream(socket.getOutputStream());
 		ObjectOutputStream stream = new ObjectOutputStream(output);
 		SerializeResponse.run(stream, rep);
-		if(lastCommand){
+		if (lastCommand) {
 			//socket.close();
 		}
 	}

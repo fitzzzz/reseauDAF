@@ -1,5 +1,6 @@
 package groupe2.socket;
 
+import common.Code;
 import common.Idea;
 import common.Requete;
 import common.Response;
@@ -12,15 +13,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static common.Code.ADD_IDEA;
+import static common.Code.GET_IDEA;
+
 /**
  * @author François Melkonian
  */
 public class Client {
 	private final Socket connection;
 	private String req;
-	public Client(String add) throws IOException {
+	public Client(Code code) throws IOException {
 	 connection = new Socket("127.0.0.1" ,1234);
-	 req=add;
+	 req=code.name();
  }
  public void start() throws IOException {
 	 Idea i = new Idea("desc","etudiant","mail@g.com");
@@ -40,7 +44,7 @@ public class Client {
 
 		Client c = null;
 		try {
-			c = new Client("add");
+			c = new Client(ADD_IDEA);
 		} catch (IOException e) {
 			System.err.println("Le serveur est injoignable");
 			System.exit(1);
@@ -49,7 +53,7 @@ public class Client {
 		c.start();
 		Client d = null;
 		try {
-			d = new Client("get");
+			d = new Client(GET_IDEA);
 		} catch (IOException e) {
 			System.err.println("Le serveur est injoignable");
 			System.exit(1);
