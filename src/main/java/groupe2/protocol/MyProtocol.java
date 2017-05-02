@@ -21,8 +21,8 @@ public class MyProtocol {
 
 			return new Response(ideas);
 		}else if(requete.getCode().equals("add")){
-			List<Idea> params = (List<Idea>) requete.getParams().get(0);
-			ideas.addAll(params);
+			Idea params = (Idea) requete.getParams().get(0);
+			ideas.add(params);
 			return new Response(new ArrayList<String>());
 		}
 		return new Response(new ArrayList<String>());
