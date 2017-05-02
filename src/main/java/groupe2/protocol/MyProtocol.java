@@ -18,13 +18,14 @@ public class MyProtocol {
 	}
 	public Response respond(Requete requete){
 		if(requete.getCode().equals("get")){
+
 			return new Response(ideas);
 		}else if(requete.getCode().equals("add")){
-			List<Idea> params = (List<Idea>) requete.getParams();
+			List<Idea> params = (List<Idea>) requete.getParams().get(0);
 			ideas.addAll(params);
-			return new Response(Collections.emptyList());
+			return new Response(new ArrayList<String>());
 		}
-		return new Response(Collections.emptyList());
+		return new Response(new ArrayList<String>());
 	}
 	public String show(){
 		return ideas.toString();

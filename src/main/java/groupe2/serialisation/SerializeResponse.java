@@ -16,7 +16,6 @@ public class SerializeResponse {
 	public static void run(ObjectOutputStream stream, Response rep) {
 		try {
 			stream.writeObject(rep);
-			stream.close();
 		} catch (IOException e) {
 			throw new IllegalStateException("La réponse du serveur est invalide : "+rep.getResponses(),e);
 		}

@@ -14,7 +14,6 @@ public class DeserializeRequest {
 	public static Requete run(ObjectInputStream stream) throws IllegalFormatException {
 		try {
 			Requete requete = (Requete) stream.readObject();
-			stream.close();
 			return requete;
 		}catch (Exception e){
 			throw new IllegalStateException("Le client n'est pas compatible avec le serveur",e);
