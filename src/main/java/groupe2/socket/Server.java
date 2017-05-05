@@ -1,10 +1,6 @@
 package groupe2.socket;
 
-import common.Requete;
-import common.Response;
 import groupe2.protocol.MyProtocol;
-import groupe2.serialisation.DeserializeRequest;
-import groupe2.serialisation.SerializeResponse;
 
 import java.io.*;
 import java.net.ServerSocket;

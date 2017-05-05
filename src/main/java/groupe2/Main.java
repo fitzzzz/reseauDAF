@@ -1,16 +1,6 @@
 package groupe2;
 
-import common.Idea;
-import common.Requete;
-import common.Response;
-import groupe2.protocol.MyProtocol;
-import groupe2.serialisation.DeserializeRequest;
-import groupe2.socket.Client;
 import groupe2.socket.Server;
-import groupe2.socket.ServerThread;
-
-import java.io.ObjectInputStream;
-import java.net.Socket;
 
 /**
  * @author François Melkonian

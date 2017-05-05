@@ -2,7 +2,7 @@ package groupe2.socket;
 
 import common.Code;
 import common.Idea;
-import common.Requete;
+import common.Request;
 import common.Response;
 import groupe2.serialisation.DeserializeResponse;
 import groupe2.serialisation.SerializeRequest;
@@ -10,7 +10,6 @@ import groupe2.serialisation.SerializeRequest;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static common.Code.ADD_IDEA;
@@ -30,9 +29,9 @@ public class Client {
 	 Idea i = new Idea("desc","etudiant","mail@g.com");
 	 List<Object> liste = new ArrayList<>();
 	 liste.add(i);
-	 Requete requete = new Requete(req, liste);
+	 Request request = new Request(req, liste);
 	 ObjectOutputStream stream = new ObjectOutputStream(connection.getOutputStream());
-	 SerializeRequest.run(stream,requete);
+	 SerializeRequest.run(stream,request);
 	 ObjectInputStream data = new ObjectInputStream(connection.getInputStream());
 	 Response r= DeserializeResponse.run(data);
 	 System.out.println(r.getResponses());

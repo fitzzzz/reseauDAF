@@ -1,6 +1,6 @@
 package groupe2.socket;
 
-import common.Requete;
+import common.Request;
 import common.Response;
 import groupe2.protocol.MyProtocol;
 import groupe2.serialisation.DeserializeRequest;
@@ -25,16 +25,16 @@ public class ServerThread extends Thread {
 		this.socket = socket;
 	}
 
-	public Requete decode() throws IOException {
+	public Request decode() throws IOException {
 		ObjectInputStream stream = new ObjectInputStream(socket.getInputStream());
-		Requete req = DeserializeRequest.run(stream);
+		Request req = DeserializeRequest.run(stream);
 		return req;
 	}
 
 	@Override
 	public void run() {
 
-		Requete requete = null;
+		Request requete = null;
 		try {
 			requete = decode();
 			Response rep = protocol.respond(requete);

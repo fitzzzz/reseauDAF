@@ -1,11 +1,8 @@
 package groupe2.serialisation;
 
-import common.Requete;
-import common.Response;
+import common.Request;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
@@ -13,7 +10,7 @@ import java.io.ObjectOutputStream;
  */
 public class SerializeRequest {
 
-	public static void run(ObjectOutputStream stream, Requete rep) {
+	public static void run(ObjectOutputStream stream, Request rep) {
 		try {
 			stream.writeObject(rep);
 		} catch (IOException e) {

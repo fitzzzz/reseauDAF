@@ -1,6 +1,6 @@
 package groupe1.server.requesthandler;
 
-import common.Requete;
+import common.Request;
 
 import java.net.Socket;
 
@@ -9,7 +9,7 @@ import java.net.Socket;
  */
 public class GetParticipantHandler extends RequestHandler {
     @Override
-    public void answer(Socket client, Requete requete) {
+    public void answer(Socket client, Request requete) {
 
     }
 }

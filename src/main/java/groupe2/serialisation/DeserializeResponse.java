@@ -1,6 +1,5 @@
 package groupe2.serialisation;
 
-import common.Requete;
 import common.Response;
 
 import java.io.ObjectInputStream;

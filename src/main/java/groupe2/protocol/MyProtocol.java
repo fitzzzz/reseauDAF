@@ -1,7 +1,7 @@
 package groupe2.protocol;
 
 import common.Idea;
-import common.Requete;
+import common.Request;
 import common.Response;
 
 import java.util.ArrayList;
@@ -19,12 +19,12 @@ public class MyProtocol {
 	public MyProtocol(){
 		ideas = new ArrayList<Idea>();
 	}
-	public Response respond(Requete requete){
-		if(requete.getCode().equals(GET_IDEA.name())){
+	public Response respond(Request request){
+		if(request.getCode().equals(GET_IDEA.name())){
 
 			return new Response(ideas);
-		}else if(requete.getCode().equals(ADD_IDEA.name())){
-			Idea params = (Idea) requete.getParams().get(0);
+		}else if(request.getCode().equals(ADD_IDEA.name())){
+			Idea params = (Idea) request.getParams().get(0);
 			ideas.add(params);
 			return new Response(Collections.singletonList(ideas.size()));
 		}

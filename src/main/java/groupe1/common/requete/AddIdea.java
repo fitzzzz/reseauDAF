@@ -1,7 +1,7 @@
 package groupe1.common.requete;
 
 import common.Idea;
-import common.Requete;
+import common.Request;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -13,7 +13,7 @@ import static common.Code.ADD_IDEA;
 /**
  * Created by DavidLANG on 01/05/2017.
  */
-public class AddIdea extends Requete {
+public class AddIdea extends Request {
     public AddIdea(Idea idea) {
         super(ADD_IDEA.name());
         List<Object> parametres = new ArrayList<>();

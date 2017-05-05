@@ -1,6 +1,6 @@
 package groupe1.server;
 
-import common.Requete;
+import common.Request;
 import groupe1.common.communication.SenderReceiver;
 import groupe1.server.requesthandler.RequestHandler;
 import groupe1.server.requesthandler.RequestHandlerMap;
@@ -22,7 +22,7 @@ public class Server {
         Map<String, RequestHandler> requestHandlerMap = RequestHandlerMap.getRequestHandlerMap();
 
         while (scanner.nextInt() != 0) {
-            Requete requete = (Requete) SenderReceiver.receive(clientSocket);
+            Request requete = (Request) SenderReceiver.receive(clientSocket);
             requestHandlerMap.get(requete.getCode()).answer(clientSocket, requete);
         }
         serverSocket.close();

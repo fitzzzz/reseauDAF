@@ -1,6 +1,6 @@
 package groupe1.client;
 
-import common.Requete;
+import common.Request;
 import common.Response;
 import groupe1.client.requestHandler.RequestHandler;
 import groupe1.client.requestHandler.RequestHandlerMap;
@@ -22,7 +22,7 @@ public class Client {
         Scanner scanner = new Scanner(System.in);
         Map<String, RequestHandler> requestHandlerMap = RequestHandlerMap.getRequestHandlerMap();
         int nbPassage = 0;
-        Requete requete;
+        Request requete;
         while (scanner.nextInt() != 0) {
 
             ////////////////////////////////////////////

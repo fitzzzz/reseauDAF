@@ -1,8 +1,5 @@
 package groupe1.common.communication;
 
-import common.Requete;
-import groupe1.common.requete.GetIdeaRequest;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

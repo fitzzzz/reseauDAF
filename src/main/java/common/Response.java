@@ -4,20 +4,40 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by DavidLANG on 25/04/2017.
+ * Réponse du serveur
+ *
+ * @author David Lang
+ * @author François Melkonian
+ * @author Alexis Deslandes
  */
 public class Response implements Serializable {
-    protected List<?> responses;
+	protected List<?> responses;
 
-    public Response() {}
-    public Response(List<?>  responses) {
-        this.responses = responses;
-    }
+	/**
+	 * Crée une réponse vide
+	 */
+	public Response() {
+	}
 
-    public List<?> getResponses() {
-        return responses;
-    }
-    public String toString(){
-        return responses.toString();
-    }
+	/**
+	 * Création de la réponse du serveur
+	 *
+	 * @param responses liste des objets renvoyés par le serveur
+	 */
+	public Response(List<?> responses) {
+		this.responses = responses;
+	}
+
+	/**
+	 * Récupère les objets renvoyés par le serveur
+	 *
+	 * @return objets renvoyés par le serveur
+	 */
+	public List<?> getResponses() {
+		return responses;
+	}
+
+	public String toString() {
+		return responses.toString();
+	}
 }

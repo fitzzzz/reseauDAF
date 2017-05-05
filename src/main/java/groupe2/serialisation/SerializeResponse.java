@@ -1,12 +1,9 @@
 package groupe2.serialisation;
 
-import common.Requete;
 import common.Response;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.IllegalFormatException;
 
 /**
  * @author François Melkonian
